@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.get('/',(req,res)=>{
 
-   // res.setHeader("Access-Control-Allow-Credentials","true");
+   res.setHeader("Access-Control-Allow-Credentials","true");
    res.send("<h1>Welcome</h1>")
 })
 
