@@ -25,7 +25,7 @@ app.get('/data',(req,res)=>{
 })
 
 app.post('/create',(req,res)=>{
-    
+    res.setHeader('Access-Control-Allow-Origin', '*');
     Data.create(req.body).then((item)=>res.send(item))
  })
  
