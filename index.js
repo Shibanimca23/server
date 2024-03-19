@@ -18,22 +18,26 @@ app.get('/',(req,res)=>{
 
 app.get('/data',(req,res)=>{
    // console.log("I got a request");
+    res.setHeader("Access-Control-Allow-Credentials","true");
    Data.find().then((item)=>res.send(item))
 })
 
 app.post('/create',(req,res)=>{
     // console.log(req.body);
+    res.setHeader("Access-Control-Allow-Credentials","true");
     Data.create(req.body).then((item)=>res.send(item))
  })
  
  app.put('/update/:id',(req,res)=>{
     console.log(req.body);
     console.log(req.params.id);
+     res.setHeader("Access-Control-Allow-Credentials","true");
     Data.findOneAndUpdate({_id:req.params.id},{$set:req.body},{ new: true }).then(res => console.log(res))
  })
 
  app.delete('/delete/:id',(req,res)=>{
 console.log(res.params);
+     res.setHeader("Access-Control-Allow-Credentials","true");
        let deletedItem = Data.findOneAndDelete({_id:req.params.id}).then(response => console.log("response:",response))
    //   console.log("deleted",deletedItem);
        if(deletedItem){
