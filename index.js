@@ -24,7 +24,7 @@ app.get('/data',(req,res)=>{
 })
 
 app.post('/create',(req,res)=>{
-    res.setHeader("Access-Control-Allow-Credentials","true");
+    
     Data.create(req.body).then((item)=>res.send(item))
  })
  
